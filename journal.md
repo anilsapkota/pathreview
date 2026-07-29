@@ -13,3 +13,22 @@ Branch name: fix/149-structural-chunker-empty-headings
 Setup confirmation: [x] App runs locally at localhost:5173
 
 Cohort ledger: [x] Issue added to cohort ledger
+
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** https://github.com/anilsapkota/pathreview/commit/f665c9b
+
+**Reproduction summary:**
+Ran the existing test `test_document_with_no_headings` using pytest and confirmed
+it fails with `assert 0 >= 1` — the chunker returns an empty list when given plain
+text with no markdown headings, silently dropping all content.
+
+**PLAN.md link:** https://github.com/anilsapkota/pathreview/blob/fix/149-structural-chunker-empty-headings/PLAN.md
+
+**Walkthrough video (recommended):** N/A
+
+**Blockers or open questions:**
+Need to confirm whether headingless content should fall back to a single chunk
+or be split by token limit. Also need to run the full unit test suite after
+the fix to ensure no regressions.
