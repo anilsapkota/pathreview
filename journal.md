@@ -34,3 +34,38 @@ text with no markdown headings, silently dropping all content.
 Need to confirm whether headingless content should fall back to a single chunk
 or be split by token limit. Also need to run the full unit test suite after
 the fix to ensure no regressions.
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Implemented the fix in `_extract_sections` in `structural_chunker.py` — removed
+the `heading_stack` requirement from both the line collection guard and the final
+save guard. The failing test `test_document_with_no_headings` now passes.
+
+**Next steps:**
+Run full test suite and code quality checks. Address any feedback from draft PR review.
+
+**Blockers:**
+`make` not available on Windows — running pytest and checks directly via .venv instead.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** https://github.com/ascherj/pathreview/pull/738
+
+**Branch:** fix/149-structural-chunker-empty-headings
+
+**What you built:**
+Fixed `StructuralChunker` to handle documents with no markdown headings. Removed
+the `heading_stack` requirement from the line collection guard and final save guard
+in `_extract_sections` so headingless content is returned as at least one chunk.
+
+**Tests added or updated:**
+`tests/unit/test_structural_chunker.py` — existing `test_document_with_no_headings` now passes.
+
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
+
+**Draft PR feedback received from:** pending
