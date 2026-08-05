@@ -69,3 +69,53 @@ in `_extract_sections` so headingless content is returned as at least one chunk.
 **Self-review confirmation:** [x] make check passes  [x] make test-unit passes
 
 **Draft PR feedback received from:** pending
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [x] Yes
+
+**Summary of feedback:**
+Reviewer noted that Week 8 and Week 9 entries were missing from JOURNAL.md 
+on the branch. Otherwise the PR looked good.
+
+**How you responded:**
+Pushed the journal content that was present locally but hadn't been committed 
+and pushed to the remote branch. Verified the entries were visible on GitHub 
+after pushing.
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+Managing git across multiple machines was much harder than expected. Merge 
+conflicts in JOURNAL.md and PLAN.md caused by committing from two different 
+machines slowed things down significantly. The conflict resolution process 
+was confusing at first and led to content being lost during the merge.
+
+**What did you learn about working in a large codebase?**
+Even a small two-line fix requires understanding a lot of surrounding context 
+— how `_extract_sections` feeds into `chunk()`, how `SemanticChunker` is used 
+as a fallback, and how the overall ingestion pipeline works. You can't just 
+change lines without understanding the flow. Reading existing tests first was 
+the fastest way to understand expected behavior.
+
+**How did AI tools help — and where did they fall short?**
+AI tools were most useful for navigating the codebase quickly, understanding 
+the root cause, and explaining git concepts in plain terms. They fell short 
+when it came to environment-specific issues — like the missing .venv on each 
+machine, Windows not having `make`, and merge conflicts that needed manual 
+judgment about which content to keep.
+
+**What would you do differently if you started over?**
+Set up the environment fully on one machine before switching to another, and 
+commit and push more frequently to avoid diverging branches. I would also 
+write the JOURNAL.md and PLAN.md content and verify it on GitHub before 
+moving on to the next step.
+
+**What are you most proud of from this module?**
+Staying with the process even when things went wrong — the merge conflicts, 
+the missing venv, the read-only files. Each blocker had a solution and working 
+through them built real confidence with git and the contribution workflow.
